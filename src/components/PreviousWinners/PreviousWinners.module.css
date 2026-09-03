@@ -1,0 +1,133 @@
+/* src/components/PreviousWinners/PreviousWinners.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 12px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.viewAllBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.viewAllBtn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: #6d28d9;
+}
+
+/* Winners Row */
+.winnersRow {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.winnersRow::-webkit-scrollbar {
+  display: none;
+}
+
+.winnerCard {
+  flex: 0 0 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px;
+  scroll-snap-align: start;
+  transition: all 0.3s ease;
+}
+
+.winnerCard:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 8px;
+  box-shadow: 0 4px 10px rgba(139, 92, 246, 0.3);
+}
+
+.winnerName {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.winnerPrize {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.trophyIcon {
+  font-size: 10px;
+}
+
+/* Desktop Grid */
+@media (min-width: 768px) {
+  .winnersRow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    overflow: visible;
+  }
+
+  .winnerCard {
+    flex: auto;
+    width: 100%;
+  }
+}

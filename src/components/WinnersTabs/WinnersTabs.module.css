@@ -1,0 +1,95 @@
+/* src/components/WinnersTabs/WinnersTabs.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+.tabsHeader {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+  background: #111827;
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tabBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.activeTab {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff !important;
+}
+
+.tabContent {
+  min-height: 200px;
+}
+
+.noWinners {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111827;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.noWinnersIcon {
+  font-size: 40px;
+  color: #8b5cf6;
+  margin-bottom: 16px;
+}
+
+.noWinners h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.noWinners p {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 16px;
+}
+
+.liveBadge {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+.winnersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .winnersGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,87 @@
+/* src/components/GiveawayLoader/GiveawayLoader.module.css */
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #0a0e1a;
+}
+
+.loaderAnimation {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.giftBox {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+}
+
+.giftIcon {
+  font-size: 30px;
+  color: #fff;
+}
+
+.sparkle1, .sparkle2, .sparkle3 {
+  position: absolute;
+  color: #8b5cf6;
+  font-size: 16px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle1 {
+  top: 0;
+  left: 10px;
+  animation-delay: 0s;
+}
+
+.sparkle2 {
+  top: 10px;
+  right: 5px;
+  animation-delay: 0.5s;
+}
+
+.sparkle3 {
+  bottom: 5px;
+  left: 15px;
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loaderText {
+  margin-top: 20px;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}

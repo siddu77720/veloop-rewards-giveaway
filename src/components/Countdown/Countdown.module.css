@@ -1,0 +1,31 @@
+/* src/components/Countdown/Countdown.module.css */
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.timeValue {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #ef4444;
+  line-height: 1;
+}
+
+.timeSeparator {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .timeValue {
+    font-size: 0.8rem;
+  }
+
+  .timeSeparator {
+    font-size: 0.7rem;
+  }
+}

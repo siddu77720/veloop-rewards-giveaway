@@ -1,0 +1,172 @@
+/* src/components/GiveawayRules/GiveawayRules.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 12px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.readBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.28);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.readDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fbbf24;
+  animation: dotPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5); }
+  50% { opacity: 0.5; box-shadow: 0 0 0 4px rgba(251, 191, 36, 0); }
+}
+
+.rulesList {
+  position: relative;
+  background: linear-gradient(180deg, #131b2e 0%, #111827 100%);
+  border-radius: 16px;
+  padding: 8px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+/* Subtle vertical scan-line that sweeps once the section is in view -
+   a small nod to the "transparent / fair process" idea without any images */
+.scanLine {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -20%;
+  height: 20%;
+  background: linear-gradient(180deg, transparent, rgba(139, 92, 246, 0.14), transparent);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.section.inView .scanLine {
+  opacity: 1;
+  animation: scanSweep 2.6s ease-in-out 0.3s 1;
+}
+
+@keyframes scanSweep {
+  0% { top: -20%; }
+  100% { top: 100%; }
+}
+
+.ruleItem {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+  margin-left: -10px;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateX(-14px);
+  transition: opacity 0.5s ease, transform 0.5s ease, background 0.25s ease, border-color 0.25s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.section.inView .ruleItem {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ruleItem:last-child {
+  border-bottom: none;
+}
+
+.ruleItem:hover {
+  background: rgba(139, 92, 246, 0.05);
+  border-left-color: #8b5cf6;
+}
+
+.ruleIconWrap {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin-top: 2px;
+  transition: transform 0.25s ease;
+}
+
+.ruleItem:hover .ruleIconWrap {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.ruleIconWrap.purple { color: #a78bfa; background: rgba(139, 92, 246, 0.14); }
+.ruleIconWrap.gold   { color: #fbbf24; background: rgba(251, 191, 36, 0.14); }
+.ruleIconWrap.pink   { color: #f472b6; background: rgba(236, 72, 153, 0.14); }
+.ruleIconWrap.green  { color: #4ade80; background: rgba(34, 197, 94, 0.14); }
+.ruleIconWrap.red    { color: #f87171; background: rgba(239, 68, 68, 0.14); }
+
+.ruleTextWrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.ruleTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 2px;
+}
+
+.ruleText {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ruleIndex {
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.06);
+  line-height: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ruleItem,
+  .scanLine {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

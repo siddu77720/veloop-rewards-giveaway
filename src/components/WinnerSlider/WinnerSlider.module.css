@@ -1,0 +1,60 @@
+/* src/components/WinnerSlider/WinnerSlider.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 16px;
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.sliderContainer {
+  background: #111827;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.icon {
+  color: #fbbf24;
+  font-size: 24px;
+}
+
+.message {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #334155;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: #fbbf24;
+  width: 20px;
+  border-radius: 4px;
+}

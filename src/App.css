@@ -1,0 +1,70 @@
+/* src/App.css */
+.app-wrapper {
+  min-height: 100vh;
+  background: #0a0e1a;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+/* Desktop par bottom padding remove karo */
+@media (min-width: 768px) {
+  .main-content {
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-content {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .main-content {
+    max-width: 1400px;
+  }
+}
+
+/* Page Styles */
+.page-container {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.back-btn:hover {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.page-container h1 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.page-container p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}

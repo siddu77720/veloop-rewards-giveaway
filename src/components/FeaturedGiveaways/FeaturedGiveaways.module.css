@@ -1,0 +1,408 @@
+/* src/components/FeaturedGiveaways/FeaturedGiveaways.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0 12px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+.viewAllBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.viewAllBtn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  color: #6d28d9;
+}
+
+/* ===== Auto-sliding Marquee (left -> right continuous loop) ===== */
+.marqueeViewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  padding: 0 12px 14px;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); } /* list duplicate hai, isliye -50% pe seamless loop hota hai */
+}
+
+/* Card Styles */
+.card {
+  flex: 0 0 200px;
+  background: #111827;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 12px;
+  padding: 1px;
+  background: conic-gradient(from 0deg, rgba(139, 92, 246, 0), rgba(139, 92, 246, 0.6), rgba(236, 72, 153, 0.4), rgba(139, 92, 246, 0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  animation: rotateGlow 4s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.35);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cardImageWrapper {
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a2333 0%, #111827 100%);
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageGlow {
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.5) 0%, rgba(139, 92, 246, 0.15) 45%, transparent 72%);
+  border-radius: 50%;
+  animation: pulse 2.2s ease-in-out infinite;
+  z-index: 0;
+}
+
+.imageGlow::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(139, 92, 246, 0.45), rgba(236, 72, 153, 0.3), rgba(251, 191, 36, 0.3), rgba(139, 92, 246, 0.45));
+  filter: blur(14px);
+  opacity: 0.75;
+  animation: rotateGlow 5s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.25); opacity: 0.9; }
+}
+
+.cardImageWrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 0.7s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.card:hover .cardImageWrapper::after {
+  transform: translateX(130%);
+}
+
+.cardImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: drop-shadow(0 4px 10px rgba(139, 92, 246, 0.25));
+}
+
+.card:hover .cardImage {
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 16px rgba(139, 92, 246, 0.5));
+}
+
+.cardBadge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+}
+
+.hotBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  animation: hotGlow 1.6s ease-in-out infinite;
+}
+
+@keyframes hotGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 0 14px rgba(239, 68, 68, 0.9); }
+}
+
+.trendingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+
+.newBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+}
+
+.cardContent {
+  padding: 10px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.cardTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.prizeValue {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.65rem;
+  color: #c4b5fd;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Glowing icon backdrop - color matches each icon's own color */
+.iconGlow {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.iconGlow::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  filter: blur(3px);
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.iconGlow svg {
+  position: relative;
+  z-index: 1;
+}
+
+.glowPurple::before { background: radial-gradient(circle, rgba(139, 92, 246, 0.9) 0%, transparent 70%); }
+.glowAmber::before { background: radial-gradient(circle, rgba(251, 191, 36, 0.9) 0%, transparent 70%); }
+.glowRed::before { background: radial-gradient(circle, rgba(239, 68, 68, 0.9) 0%, transparent 70%); }
+
+.coinIcon { font-size: 10px; color: #c4b5fd; }
+
+.entryInfo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.entryIcon { font-size: 10px; color: #fbbf24; }
+
+.progressBar {
+  width: 100%;
+  height: 3px;
+  background: #1a2333;
+  border-radius: 3px;
+  margin-bottom: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #8b5cf6, #6d28d9);
+  border-radius: 3px;
+}
+
+.progressText {
+  font-size: 0.55rem;
+  color: #94a3b8;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.65rem;
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+.countdownIcon { font-size: 10px; color: #ef4444; }
+
+.joinBtn {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.joinBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  transform: skewX(-20deg);
+}
+
+.card:hover .joinBtn::before {
+  animation: ctaShine 1.1s ease-in-out;
+}
+
+@keyframes ctaShine {
+  0% { left: -75%; }
+  100% { left: 130%; }
+}
+
+.joinBtn:hover {
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.55);
+  transform: translateY(-1px);
+}
+
+.joinBtn:active {
+  transform: translateY(0);
+}
+
+/* Bigger cards on larger screens, marquee still active on all sizes */
+@media (min-width: 768px) {
+  .card {
+    flex: 0 0 230px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    flex: 0 0 250px;
+  }
+}

@@ -1,0 +1,78 @@
+/* src/components/BottomNav/BottomNav.module.css */
+.bottomNav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background: #111827;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.navItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #94a3b8;
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.navItem:hover {
+  color: #8b5cf6;
+}
+
+.active {
+  color: #8b5cf6 !important;
+}
+
+.iconWrapper {
+  font-size: 20px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+/* Center + Button - Perfect Circle */
+.centerBtn {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  margin: 0;
+  padding: 0;
+  flex: none;
+}
+
+.centerBtn:hover {
+  transform: scale(1.1);
+}
+
+/* Desktop par Bottom Navbar HIDE karo */
+@media (min-width: 768px) {
+  .bottomNav {
+    display: none;
+  }
+}

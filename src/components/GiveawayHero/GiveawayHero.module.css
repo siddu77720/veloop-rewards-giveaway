@@ -1,0 +1,350 @@
+/* src/components/GiveawayHero/GiveawayHero.module.css */
+.hero {
+  position: relative;
+  min-height: 450px;
+  border-radius: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0e1a 0%, #1a0b2e 50%, #2d1b4e 100%);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 32px;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 70% 50%, rgba(139, 92, 246, 0.35) 0%, transparent 60%),
+    radial-gradient(circle at 20% 90%, rgba(236, 72, 153, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 85% 15%, rgba(251, 191, 36, 0.12) 0%, transparent 50%);
+  background-size: 100% 100%, 100% 100%, 100% 100%;
+  animation: overlayShift 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes overlayShift {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Sparkles */
+.sparkle1, .sparkle2, .sparkle3 {
+  position: absolute;
+  color: #8b5cf6;
+  font-size: 20px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.sparkle1 {
+  top: 40px;
+  right: 60px;
+  animation-delay: 0s;
+}
+
+.sparkle2 {
+  top: 80px;
+  right: 200px;
+  font-size: 14px;
+  animation-delay: 0.5s;
+}
+
+.sparkle3 {
+  bottom: 60px;
+  right: 80px;
+  font-size: 16px;
+  animation-delay: 1s;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* Left Side Content */
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 55%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(139, 92, 246, 0.15);
+  color: #8b5cf6;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  animation: badgeGlow 2.2s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+  0%, 100% { box-shadow: 0 0 6px rgba(139, 92, 246, 0.15); }
+  50% { box-shadow: 0 0 16px rgba(139, 92, 246, 0.5); }
+}
+
+.badgeIcon {
+  font-size: 12px;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* CTA Button - Link */
+.ctaButton {
+  position: relative;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4), 0 0 0 rgba(139, 92, 246, 0);
+  text-decoration: none;
+  overflow: hidden;
+  animation: ctaGlowPulse 2.5s ease-in-out infinite;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.45) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  animation: ctaShine 3s ease-in-out infinite;
+}
+
+@keyframes ctaShine {
+  0% { left: -75%; }
+  40%, 100% { left: 130%; }
+}
+
+@keyframes ctaGlowPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4), 0 0 15px rgba(139, 92, 246, 0.15); }
+  50% { box-shadow: 0 4px 26px rgba(139, 92, 246, 0.65), 0 0 30px rgba(139, 92, 246, 0.35); }
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 25px rgba(139, 92, 246, 0.5);
+}
+
+.ctaIcon {
+  font-size: 14px;
+}
+
+/* Social Proof */
+.socialProof {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.avatars {
+  display: flex;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border: 2px solid #0a0e1a;
+  margin-left: -8px;
+}
+
+.avatar:first-child {
+  margin-left: 0;
+}
+
+.socialText {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Right Side - Illustration (ORIGINAL absolute-positioned layout, unchanged) */
+.illustration {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  width: 45%;
+  height: 85%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.illustrationGlow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.45) 0%, rgba(139, 92, 246, 0.12) 45%, transparent 72%);
+  border-radius: 50%;
+  animation: pulse 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+.illustrationGlow::before {
+  content: '';
+  position: absolute;
+  inset: -35px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, rgba(139, 92, 246, 0.5), rgba(236, 72, 153, 0.35), rgba(251, 191, 36, 0.35), rgba(139, 92, 246, 0.5));
+  filter: blur(24px);
+  opacity: 0.8;
+  animation: rotateGlow 7s linear infinite;
+}
+
+.illustrationGlow::after {
+  content: '';
+  position: absolute;
+  inset: 40px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  animation: rotateGlow 12s linear infinite reverse;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* FIX: JSX has a wrapper div (.illustrationFloat) around the <img> so the
+   float animation and the drop-shadow filter don't sit on the same element
+   (that combo is what caused the blur bug). This wrapper just takes over the
+   old .illustrationImage's position/size/animation - layout is unchanged. */
+.illustrationFloat {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 4s ease-in-out infinite;
+}
+
+.illustrationImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.45)) drop-shadow(0 0 60px rgba(139, 92, 246, 0.2));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Mobile Responsive - Same layout, only size adjustments (unchanged) */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 300px;
+    padding: 20px 16px;
+  }
+
+  .content {
+    max-width: 50%;
+  }
+
+  .badge {
+    font-size: 0.6rem;
+    padding: 4px 8px;
+    margin-bottom: 12px;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .ctaButton {
+    padding: 10px 16px;
+    font-size: 0.75rem;
+  }
+
+  .socialProof {
+    margin-top: 12px;
+    gap: 8px;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+
+  .socialText {
+    font-size: 0.65rem;
+  }
+
+  .illustration {
+    width: 48%;
+    right: 0;
+    bottom: 0;
+    height: 90%;
+  }
+
+  .illustrationGlow {
+    width: 50px;
+    height: 50px;
+  }
+}

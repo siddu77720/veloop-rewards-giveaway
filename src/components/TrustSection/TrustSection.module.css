@@ -1,0 +1,164 @@
+/* src/components/TrustSection/TrustSection.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 12px 8px;
+}
+
+.titleWrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+/* 1 Row Layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.trustCard {
+  position: relative;
+  background: linear-gradient(180deg, #131b2e 0%, #111827 100%);
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition-delay: var(--delay, 0s);
+}
+
+.section.inView .trustCard {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.trustCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(139, 92, 246, 0.2);
+}
+
+.trustCard.purple:hover { border-color: rgba(139, 92, 246, 0.4); }
+.trustCard.gold:hover   { border-color: rgba(251, 191, 36, 0.4); }
+.trustCard.pink:hover   { border-color: rgba(236, 72, 153, 0.4); }
+.trustCard.green:hover  { border-color: rgba(34, 197, 94, 0.4); }
+
+/* Diagonal shine sweep on hover - pure CSS, no image needed */
+.cardShine {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.trustCard:hover .cardShine {
+  left: 130%;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 auto 12px;
+  transition: transform 0.3s ease;
+}
+
+.trustCard:hover .iconWrapper {
+  transform: scale(1.08);
+}
+
+.purple .iconWrapper { color: #a78bfa; background: rgba(139, 92, 246, 0.1); }
+.gold   .iconWrapper { color: #fbbf24; background: rgba(251, 191, 36, 0.1); }
+.pink   .iconWrapper { color: #f472b6; background: rgba(236, 72, 153, 0.1); }
+.green  .iconWrapper { color: #4ade80; background: rgba(34, 197, 94, 0.1); }
+
+/* Rotating dashed ring around the icon - pure CSS, echoes the hero glow */
+.iconRing {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1px dashed currentColor;
+  opacity: 0.35;
+  animation: ringSpin 9s linear infinite;
+}
+
+@keyframes ringSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.cardTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
+}
+
+.cardDesc {
+  font-size: 0.65rem;
+  color: #94a3b8;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Mobile - 2x2 grid */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .trustCard {
+    padding: 14px 10px;
+  }
+
+  .iconWrapper {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .cardTitle {
+    font-size: 0.7rem;
+  }
+
+  .cardDesc {
+    font-size: 0.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trustCard,
+  .iconRing {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

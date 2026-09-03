@@ -1,0 +1,144 @@
+/* src/pages/TasksPage.module.css */
+.page {
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.backBtn:hover {
+  color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.iconWrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: rgba(139, 92, 246, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
+.iconImage {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 8px;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.taskCard {
+  background: #111827;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.taskCard:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+}
+
+.taskIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.taskImage {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.taskInfo {
+  flex: 1;
+}
+
+.taskTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.taskDesc {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 4px 0;
+}
+
+.taskReward {
+  font-size: 0.7rem;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.taskBtn {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.taskBtn:hover {
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}

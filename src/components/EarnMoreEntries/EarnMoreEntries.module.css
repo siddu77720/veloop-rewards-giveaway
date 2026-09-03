@@ -1,0 +1,119 @@
+/* src/components/EarnMoreEntries/EarnMoreEntries.module.css */
+.section {
+  margin-top: 24px;
+  padding: 0 12px;
+}
+
+/* Main Container - Sab 1 row mein */
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Left Side - Ticket Icon (Transparent + Floating) */
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: transparent;
+  animation: float 3s ease-in-out infinite;
+}
+
+.ticketImage {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.5));
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Middle - Text */
+.textContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 4px 0 0 0;
+  line-height: 1.4;
+}
+
+/* Right Side - Explore Activities Button */
+.buttonContainer {
+  flex-shrink: 0;
+}
+
+.exploreBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.exploreBtn:hover {
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Mobile - Sab 1 row mein */
+@media (max-width: 480px) {
+  .headerContainer {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ticketImage {
+    width: 42px;
+    height: 42px;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+
+  .subtitle {
+    font-size: 0.65rem;
+  }
+
+  .exploreBtn {
+    padding: 8px 12px;
+    font-size: 0.7rem;
+  }
+}
