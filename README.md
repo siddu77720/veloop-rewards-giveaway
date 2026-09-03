@@ -19,6 +19,10 @@ Sample giveaway/prize data used for local development lives in `src/data/giveawa
 
 The backend is already integrated (this is a full-stack app) — future enhancements could include real payment/entry-purchase flows, admin dashboard UI, and automated winner selection.
 
+## Screenshots
+
+  ![Desktop View](screenshots/desktop.png)
+  ![Mobile View](screenshots/mobile.jpeg)
 
 ## Live Demo
 
