@@ -3,18 +3,24 @@ const mongoose = require('mongoose');
 const Giveaway = require('../models/Giveaway');
 const Prize = require('../models/Prize');
 
+let isConnected = false;
+
 const connectDB = async () => {
+  if (isConnected) return;
+
   try {
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/veloop_giveaway');
+    isConnected = true;
     console.log('MongoDB Connected Successfully');
-    
+
     const giveawayCount = await Giveaway.countDocuments();
     if (giveawayCount === 0) {
       await seedData();
     }
   } catch (error) {
     console.error('MongoDB Connection Error:', error.message);
-    process.exit(1);
+    // Do NOT process.exit() here — that crashes serverless functions.
+    // Just log it; requests will fail gracefully instead of killing the whole function.
   }
 };
 
