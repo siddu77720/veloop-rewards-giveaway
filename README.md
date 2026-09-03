@@ -1,16 +1,25 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Component Architecture
 
-Currently, two official plugins are available:
+Each UI component lives in its own folder with a `.jsx` file and a scoped `.module.css` file (e.g. `components/PrizeCard/PrizeCard.jsx` + `PrizeCard.module.css`), keeping styles isolated per component.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Responsive Design
 
-## React Compiler
+Layouts adapt across desktop, tablet, and mobile breakpoints using CSS Modules and a mobile bottom navigation bar for small screens.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Animation Details
 
-## Expanding the ESLint configuration
+Scroll-triggered reveal animations (via `useInView` hook), countdown ticking animation, and winner reveal/slider transitions.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Mock Data Structure
+
+Sample giveaway/prize data used for local development lives in `src/data/giveawayData.js`, mirroring the shape returned by the backend API.
+
+## Future Backend Integration
+
+The backend is already integrated (this is a full-stack app) — future enhancements could include real payment/entry-purchase flows, admin dashboard UI, and automated winner selection.
+
+
+## Live Demo
+
+https://veloop-app.vercel.app/
