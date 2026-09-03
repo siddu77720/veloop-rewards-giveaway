@@ -21,8 +21,11 @@ The backend is already integrated (this is a full-stack app) — future enhancem
 
 ## Screenshots
 
-  ![Desktop View](screenshots/desktop.png)
-  ![Mobile View](screenshots/mobile.jpeg)
+### Desktop View
+![Desktop View](screenshots/desktop.png)
+
+### Mobile View
+![Mobile View](screenshots/mobile.jpeg)
 
 ## Live Demo
 
